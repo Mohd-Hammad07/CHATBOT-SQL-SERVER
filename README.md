@@ -99,13 +99,6 @@ You can customize the chatbot to suit your specific needs:
 - **Connection Issues**: Ensure that your SQL Server allows remote connections and that the firewall settings are correctly configured.
 - **ODBC Driver**: Make sure the correct ODBC driver is installed on your system. You can check this using the ODBC Data Source Administrator on Windows.
 
-## Contribution
-
-Contributions to improve this project are welcome. Feel free to open issues or submit pull requests.
-
-### License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
 ## Acknowledgments
 

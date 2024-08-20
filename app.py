@@ -1,16 +1,4 @@
-import streamlit as st
-from dotenv import load_dotenv
-from langchain_core.messages import AIMessage, HumanMessage
-from langchain_core.runnables import RunnablePassthrough
-from langchain_core.output_parsers import StrOutputParser
-from langchain_openai import ChatOpenAI
-import mysql.connector
-from langchain_groq import ChatGroq
-from langchain.utilities import SQLDatabase
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-import pyodbc
-import os 
+#import all necessary libraries 
 
 
 # Function to initialize the SQL Server database connection
@@ -53,7 +41,7 @@ def get_sql_chain(db):
     prompt = PromptTemplate.from_template(template)
   
     # Initialize the LLM once
-    llm = ChatGroq(model="mixtral-8x7b-32768", temperature=0)
+    llm = ChatGroq(model="..............", temperature=0)
   
     def get_schema(_):
         return db.get_table_info()
@@ -88,7 +76,7 @@ def get_response(user_query: str, db: SQLDatabase, chat_history: list):
     prompt = PromptTemplate.from_template(template)
   
     # Use the LLM initialized once
-    llm = ChatGroq(model="mixtral-8x7b-32768", temperature=0)
+    llm = ChatGroq(model="........", temperature=0)
   
     chain = (
         RunnablePassthrough.assign(query=sql_chain).assign(
@@ -124,8 +112,8 @@ with st.sidebar:
     st.subheader("Settings")
     st.write("This is a simple chat application using SQL Server. Connect to the database and start chatting.")
     
-    st.text_input("Server", value="ALPHABET\\SQLEXPRESS", key="Server")
-    st.text_input("Database", value="Chinook", key="Database")
+    st.text_input("Server", value="Server name ", key="Server")
+    st.text_input("Database", value="Database", key="Database")
     
     if st.button("Connect"):
         with st.spinner("Connecting to database..."):

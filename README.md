@@ -1,7 +1,3 @@
-Here's a detailed README description for your SQL Server chatbot application:
-
----
-
 # SQL Server Chatbot Application
 
 ## Overview
@@ -119,6 +115,4 @@ This application was built using the following technologies:
 - **[OpenAI API](https://openai.com/)**: For powering the chatbot's conversational abilities.
 - **[SQL Server](https://www.microsoft.com/en-us/sql-server)**: As the database management system.
 
----
 
-Feel free to modify this README as necessary to fit your specific project details!

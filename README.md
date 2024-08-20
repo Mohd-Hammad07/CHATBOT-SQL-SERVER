@@ -60,8 +60,8 @@ streamlit run app.py
 
 1. Open the application in your web browser (Streamlit will provide a URL).
 2. In the sidebar, enter your SQL Server details:
-   - **Server**: The name of your SQL Server instance (e.g., `ALPHABET\SQLEXPRESS`).
-   - **Database**: The name of the database you want to connect to (e.g., `celebal`).
+   - **Server**: The name of your SQL Server instance (e.g., `Your Server Name `).
+   - **Database**: The name of the database you want to connect to (e.g., `Database`).
 3. Click the **Connect** button to establish a connection to the database.
 
 ## How It Works

@@ -1,11 +1,11 @@
 #import all necessary libraries 
 
 
-# Function to initialize the SQL Server database connection
+
 # Function to initialize the SQL Server database connection
 def init_database(server: str, database: str) -> SQLDatabase:
-    conn_str = f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};Trusted_Connection=yes;"
-    return SQLDatabase.from_uri(f"mssql+pyodbc:///?odbc_connect={conn_str}")
+    conn_str = f"DRIVER={{ODBC Driver for SQL Server};SERVER={server};DATABASE={database};Trusted_Connectionyes;"
+    return SQLDatabase.from_uri(f"mssql+pyodbc:///?odbc_connected={conn_str}")
 
 # Function to get the SQL chain
 def get_sql_chain(db):
@@ -49,8 +49,6 @@ def get_sql_chain(db):
     return (
         RunnablePassthrough.assign(schema=get_schema)
         | prompt
-        | llm
-        | StrOutputParser()
     )
 
 # Function to get the natural language response
@@ -80,8 +78,8 @@ def get_response(user_query: str, db: SQLDatabase, chat_history: list):
   
     chain = (
         RunnablePassthrough.assign(query=sql_chain).assign(
-            schema=lambda _: db.get_table_info(),
-            response=lambda vars: db.run(vars["query"]),
+            schema=_: db.get_table_info(),
+            vars: db.run(vars["query"]),
         )
         | prompt
         | llm
@@ -119,11 +117,11 @@ with st.sidebar:
         with st.spinner("Connecting to database..."):
             db = init_database(
                 st.session_state["Server"],
-                st.session_state["Database"]
+               # Initially add databse 
             )
             st.session_state.db = db
-            st.session_state.server = st.session_state["Server"]  # Save the server name
-            st.session_state.database = st.session_state["Database"]  # Save the database name
+            st.session_state.server = st.session_state["...."]  # Save the server name
+            st.session_state.database = st.session_state["......"]  
             st.success("Connected to database!")
     
 
